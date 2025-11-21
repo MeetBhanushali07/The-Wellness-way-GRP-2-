@@ -13,6 +13,17 @@
         footer { background: #0a6e3f; color: white; padding: 15px; text-align: center; margin-top: 30px; }
         img { border-radius: 10px; }
     </style>
+    <script>
+         function validateForm() {
+            var fname = document.getElementById("fname").value;
+                 if(fname === "" || fname <= 2) { alert("Please enter your first name."); return false; }
+            var email = document.getElementById("Email").value;
+                 if(email === "") { alert("Please enter your email."); return false; }
+            var mobile = document.getElementById("Mnumber").value;
+                  if(mobile === "" || mobile.length != 10) { alert("Please enter a valid 10-digit mobile number."); return false; }
+
+         }
+    </script>
 
 </head>
 
@@ -39,11 +50,21 @@
 <div class="container">
     <h2>Get in Touch</h2>
 
-    <form>
-        <input type="text" placeholder="Enter your name">
-        <input type="email" placeholder="Enter your email">
-        <input type="text" placeholder="Phone number">
-        <textarea rows="5" placeholder="Message"></textarea>
+        <form onsubmit="return validateForm()" method="post">
+
+        <label>Enter your Name:</label>
+        <input type="text" id="fname" name="fname" minlength="2"><br><br>
+
+         <label>Email:</label>
+        <input type="email" id="Email" name="Email"><br><br>
+
+         <label>Mobile Number:</label>
+        <input type="text" id="Mnumber" name="Mnumber" maxlength="10"><br><br>
+
+        <label>Enter the message:</label>
+        <textarea id="mytextarea" name="message" rows=5 minlength="1" > 
+    </textarea>
+        <input type="submit" value="Submit">
     </form>
 
     <h3>Contact Details</h3>
@@ -58,3 +79,4 @@
 
 </body>
 </html>
+
